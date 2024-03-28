@@ -244,7 +244,11 @@ export function parseFilters(
     }
   }
 
-  return { networkFilters, cosmeticFilters, preprocessors };
+  return {
+    networkFilters,
+    cosmeticFilters,
+    preprocessors: preprocessors.filter((preprocessor) => preprocessor.filterIDs.size > 0),
+  };
 }
 
 function getFilters(
